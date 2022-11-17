@@ -1,0 +1,8 @@
+.colorChip{
+    background-color: rgb(0, 192, 0);
+    
+}
+
+#div-pack:nth-child(1){
+    background-color: rgba(115, 255, 236, 0.18)
+}
