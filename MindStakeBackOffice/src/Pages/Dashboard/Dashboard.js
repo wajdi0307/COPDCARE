@@ -28,17 +28,7 @@ export default function Dashboard() {
                 type: 'pie',
             },
             labels: category,
-            // responsive: [{
-            //     breakpoint: 480,
-            //     options: {
-            //         chart: {
-            //             width: 200
-            //         },
-            //         legend: {
-            //             position: 'bottom'
-            //         }
-            //     }
-            // }]
+ 
         },
     }
         
@@ -71,201 +61,16 @@ export default function Dashboard() {
 
 
     const [complaints, setComplaints] = useState()
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { data: response } = await axiosconfig.get(`/complaints/`);
-                setComplaints(response.length)
-            } catch (error) {
-                console.error(error)
-            }
-        };
-        fetchData().then(complaints);
-
-    }, []);
+ 
 
     const [projects, setProjects] = useState()
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { data: response } = await axiosconfig.get(`/projects/getallprojects`);
-                setProjects(response.length)
-            } catch (error) {
-                console.error(error)
-            }
-        };
-        fetchData().then(projects);
 
-    }, []);
 
     const [users, setUsers] = useState()
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const { data: response } = await axiosconfig.get(`/users/`);
-                setUsers(response.length)
-            } catch (error) {
-                console.error(error)
-            }
-        };
-        fetchData().then(users);
-
-    }, []);
-
+   
     return (
         <React.Fragment>
-            <>
-                <div className="row g-3">
-                    <div className="row g-3 mb-3">
-                        <div className="col-sm-6 col-md-4">
-                            <div className="card overflow-hidden" style={{ minWidth: "12rem" }}>
-                                <div
-                                    className="bg-holder bg-card"
-                                    style={{
-                                        backgroundImage:
-                                            "url(../assets/img/icons/spot-illustrations/corner-1.png)"
-                                    }}
-                                ></div>
-                                {/*/.bg-holder*/}
-                                <div className="card-body position-relative">
-                                    <h6>
-                                        Complaints
-                                        <span className="badge badge-soft-warning rounded-pill ms-2">
-
-                                        </span>
-                                    </h6>
-                                    <div
-                                        className="display-4 fs-4 mb-2 fw-normal font-sans-serif text-warning"
-                                        data-countup=""
-                                    >
-                                       
-                                    </div>
-                                    <Link
-                                        className="fw-semi-bold fs--1 text-nowrap"
-                                        to='/complaints'
-                                    >
-                                        See all complaints
-                                        <span
-                                            className="fas fa-angle-right ms-1"
-                                            data-fa-transform="down-1"
-                                        />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-sm-6 col-md-4">
-                            <div className="card overflow-hidden" style={{ minWidth: "12rem" }}>
-                                <div
-                                    className="bg-holder bg-card"
-                                    style={{
-                                        backgroundImage:
-                                            "url(../assets/img/icons/spot-illustrations/corner-2.png)"
-                                    }}
-                                ></div>
-                                {/*/.bg-holder*/}
-                                <div className="card-body position-relative">
-                                    <h6>
-                                        Users
-                                        <span className="badge badge-soft-info rounded-pill ms-2">
-                                            0.0%
-                                        </span>
-                                    </h6>
-                                    <div
-                                        className="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info"
-                                        data-countup=""
-                                    >
-                                        {users}
-                                    </div>
-                                    <Link
-                                        className="fw-semi-bold fs--1 text-nowrap"
-                                        to='/users'
-                                    >
-                                        See all users
-                                        <span
-                                            className="fas fa-angle-right ms-1"
-                                            data-fa-transform="down-1"
-                                        />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="card overflow-hidden" style={{ minWidth: "12rem" }}>
-                                <div
-                                    className="bg-holder bg-card"
-                                    style={{
-                                        backgroundImage:
-                                            "url(../assets/img/icons/spot-illustrations/corner-3.png)"
-                                    }}
-                                ></div>
-                                {/*/.bg-holder*/}
-                                <div className="card-body position-relative">
-                                    <h6>
-                                        Projects
-                                        <span className="badge badge-soft-success rounded-pill ms-2">
-                                            9.54%
-                                        </span>
-                                    </h6>
-                                    <div
-                                        className="display-4 fs-4 mb-2 fw-normal font-sans-serif"
-                                        data-countup=""
-                                    >
-                                        
-                                    </div>
-                                    <Link
-                                        className="fw-semi-bold fs--1 text-nowrap"
-                                        to='/projects'
-                                    >
-                                        See all projects
-                                        <span
-                                            className="fas fa-angle-right ms-1"
-                                            data-fa-transform="down-1"
-                                        />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <Cards />
-                    <div className="col-xxl-9">
-
-                        {/* <div className="card rounded-3 overflow-hidden h-100">
-                            <div className="card-body bg-line-chart-gradient d-flex flex-column justify-content-between">
-                                <div className="row align-items-center g-0">
-                                    <div className="col light">
-                                        <h4 className="text-white mb-0">Today $764.39</h4>
-                                        <p className="fs--1 fw-semi-bold text-white">
-                                            Yesterday <span className="opacity-50">$684.87</span>
-                                        </p>
-                                    </div>
-                                    <div className="col-auto d-none d-sm-block">
-                                        <select
-                                            className="form-select form-select-sm mb-3"
-                                            id="dashboard-chart-select"
-                                        >
-                                            <option value="all">All Payments</option>
-                                            <option value="successful" selected="selected">
-                                                Successful Payments
-                                            </option>
-                                            <option value="failed">Failed Payments</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                {/* Find the JS file for the following calendar at: src/js/charts/echarts/line-payment.js
-                                 If you are not using gulp based workflow, you can find the transpiled code at: public/assets/js/theme.js
-
-                                <div
-                                    className="echart-line-payment"
-                                    style={{ height: 200 }}
-                                    data-echart-responsive="true"
-                                />
-                            </div>
-                        </div> */}
-                    </div>
-
-
-
-                </div>
+            <>              
                 <br />
                 <div className="row g-3 mb-3">
                     <div className="col-xxl-9">

@@ -183,7 +183,7 @@ export default function Admin() {
                 <div className="card-header">
                     <div className="row flex-between-center">
                         <div className="col-4 col-sm-auto d-flex align-items-center pe-0">
-                            <h5 className="fs-0 mb-0 text-nowrap py-2 py-xl-0">Admins</h5>
+                            <h5 className="fs-0 mb-0 text-nowrap py-2 py-xl-0">Patients</h5>
                         </div>
                         <div className="col-8 col-sm-auto text-end ps-2">
                             <div className="d-none" id="table-customers-actions">

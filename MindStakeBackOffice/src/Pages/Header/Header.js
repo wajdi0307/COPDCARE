@@ -219,7 +219,7 @@ export default function Header() {
                                                 <div className="notification-body">
                                                     <p className="mb-1">
                                                         <strong>Albert Brooks</strong> reacted to{" "}
-                                                        <strong>Mia Khalifa's</strong> status
+                                                        <strong>hello</strong> status
                                                     </p>
                                                     <span className="notification-time">
                                                         <span className="me-2 fab fa-gratipay text-danger" />

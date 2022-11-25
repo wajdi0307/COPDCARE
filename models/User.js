@@ -10,6 +10,8 @@ const UserSchema = new mongoose.Schema({
   },
   Role: {
     type: String,
+    enum: ["PATIENT", "DOCTOR", "ADMIN"],
+    default: "PATIENT",
     required: [true, "Please provide a role"],
   },
   email: {
